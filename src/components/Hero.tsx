@@ -15,13 +15,17 @@ const Hero = () => {
         <div className="max-w-5xl mx-auto">
           {/* Profile Section */}
           <div className="mb-12 relative">
-            <div className="w-68 h-68 mx-auto mb-8 relative group">
+            <div className="w-72 h-72 mx-auto mb-8 relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full animate-spin-slow"></div>
               <div className="absolute inset-2 bg-white rounded-full flex items-center justify-center shadow-2xl group-hover:shadow-blue-500/25 transition-all duration-500 overflow-hidden">
                 <img 
                   src="/images/profile.jpg" 
                   alt="Gonçalo Frutuoso" 
                   className="w-full h-full object-cover rounded-full"
+                  onError={(e) => {
+                    console.log('Image failed to load:', (e.target as HTMLImageElement).src);
+                    (e.target as HTMLImageElement).style.display = 'none';
+                  }}
                 />
               </div>
             </div>
