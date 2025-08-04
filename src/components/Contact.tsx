@@ -8,7 +8,6 @@ const Contact = () => {
     error, 
     handleChange, 
     handleSubmit, 
-    resetForm 
   } = useContactForm();
 
   return (
