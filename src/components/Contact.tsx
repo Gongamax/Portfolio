@@ -1,4 +1,16 @@
+import { useContactForm } from '../hooks/useContactForm';
+
 const Contact = () => {
+  const { 
+    formData, 
+    isLoading, 
+    isSuccess, 
+    error, 
+    handleChange, 
+    handleSubmit, 
+    resetForm 
+  } = useContactForm();
+
   return (
     <section id="contact" className="py-20 relative overflow-hidden">
       {/* Background */}
@@ -130,7 +142,37 @@ const Contact = () => {
                   Send a Message
                 </h3>
                 
-                <form className="space-y-4 sm:space-y-6">
+                {/* Success/Error Messages */}
+                {isSuccess && (
+                  <div className="mb-6 p-4 bg-green-100 border border-green-200 rounded-2xl">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-green-700 font-bold">Message sent successfully!</p>
+                        <p className="text-green-600 text-sm">I'll get back to you as soon as possible.</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {error && (
+                  <div className="mb-6 p-4 bg-red-100 border border-red-200 rounded-2xl">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </div>
+                      <p className="text-red-700 font-medium">{error}</p>
+                    </div>
+                  </div>
+                )}
+                
+                <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
                   <div>
                     <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-2 sm:mb-3">
                       Name
@@ -139,8 +181,12 @@ const Contact = () => {
                       type="text"
                       id="name"
                       name="name"
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 bg-white/70 backdrop-blur-sm font-medium text-sm sm:text-base"
+                      value={formData.name}
+                      onChange={handleChange}
+                      disabled={isLoading}
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 bg-white/70 backdrop-blur-sm font-medium text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="Your name"
+                      required
                     />
                   </div>
                   
@@ -152,8 +198,12 @@ const Contact = () => {
                       type="email"
                       id="email"
                       name="email"
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 bg-white/70 backdrop-blur-sm font-medium text-sm sm:text-base"
+                      value={formData.email}
+                      onChange={handleChange}
+                      disabled={isLoading}
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 bg-white/70 backdrop-blur-sm font-medium text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="your.email@example.com"
+                      required
                     />
                   </div>
                   
@@ -165,8 +215,12 @@ const Contact = () => {
                       type="text"
                       id="subject"
                       name="subject"
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 bg-white/70 backdrop-blur-sm font-medium text-sm sm:text-base"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      disabled={isLoading}
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 bg-white/70 backdrop-blur-sm font-medium text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="What's this about?"
+                      required
                     />
                   </div>
                   
@@ -178,21 +232,38 @@ const Contact = () => {
                       id="message"
                       name="message"
                       rows={5}
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 bg-white/70 backdrop-blur-sm font-medium resize-none text-sm sm:text-base"
+                      value={formData.message}
+                      onChange={handleChange}
+                      disabled={isLoading}
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 bg-white/70 backdrop-blur-sm font-medium resize-none text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="Tell me about your project or just say hello!"
+                      required
                     ></textarea>
                   </div>
                   
                   <button
                     type="submit"
-                    className="w-full relative group overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white font-black py-3 sm:py-4 px-6 sm:px-8 rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-base sm:text-lg"
+                    disabled={isLoading}
+                    className="w-full relative group overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white font-black py-3 sm:py-4 px-6 sm:px-8 rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-base sm:text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <span className="relative flex items-center justify-center">
-                      Send Message
-                      <svg className="w-5 h-5 sm:w-6 sm:h-6 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                      </svg>
+                      {isLoading ? (
+                        <>
+                          <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          Send Message
+                          <svg className="w-5 h-5 sm:w-6 sm:h-6 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                          </svg>
+                        </>
+                      )}
                     </span>
                   </button>
                 </form>
