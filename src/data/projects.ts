@@ -3,7 +3,7 @@ import type { Project } from "../types";
 export const projects: Project[] = [
   {
     id: 1,
-    title: "SCAR - Master's Thesis",
+    title: "SCAR - Bachelor's Thesis",
     description:
       "Smart Contract Academic Registry - A blockchain-based solution to verify academic credentials and combat phony certifications. Uses smart contracts for automated, secure credential validation with GDPR compliance and seamless system integration.",
     technologies: [
@@ -21,7 +21,7 @@ export const projects: Project[] = [
       "Support for both formal and informal learning certification",
     ],
     status: "Research Complete",
-    type: "Master's Thesis",
+    type: "Bachelor's Thesis",
     image: "/api/placeholder/600/400",
     category: "Academic Research",
     grade: "18/20",
