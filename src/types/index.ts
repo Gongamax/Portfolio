@@ -4,7 +4,12 @@ export interface Project {
   description: string;
   technologies: string[];
   features: string[];
-  status: 'Live' | 'Research Complete' | 'Demo Available';
+  status:
+    | "Live"
+    | "Research Complete"
+    | "Demo Available"
+    | "Completed"
+    | "Ongoing";
   type: string;
   image: string;
   category: string;
@@ -23,7 +28,7 @@ export interface Experience {
   description: string;
   responsibilities: string[];
   technologies: string[];
-  type: 'apprentice' | 'internship' | 'full-time' | 'part-time' | 'freelance';
+  type: "apprentice" | "internship" | "full-time" | "part-time" | "freelance";
 }
 
 export interface Education {
@@ -50,7 +55,7 @@ export interface FinalProject {
 }
 
 export interface StatusBadgeProps {
-  status: Project['status'];
+  status: Project["status"];
 }
 
 export interface TechnologyTagProps {
@@ -60,5 +65,5 @@ export interface TechnologyTagProps {
 
 export interface ExperienceCardProps {
   experience: Experience;
-  timelinePosition: 'current' | 'past';
+  timelinePosition: "current" | "past";
 }
