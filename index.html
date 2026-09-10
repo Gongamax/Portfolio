@@ -1,13 +1,111 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gonçalo Frutuoso - Software Engineer</title>
+    <title>Gonçalo Frutuoso — Software Engineer</title>
+    <meta name="description" content="Gonçalo Frutuoso is a software engineer in Lisbon working on Apple's ecosystem at Sky and researching scalable graph and phylogenetic visualization at Instituto Superior Técnico and INESC-ID." />
+    <meta name="author" content="Gonçalo Frutuoso" />
+    <meta name="theme-color" content="#fbfbfa" />
+    <link rel="canonical" href="https://goncalofrutuoso.dev/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/style.css" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Gonçalo Frutuoso — Software Engineer" />
+    <meta property="og:description" content="Software engineer working on Apple's ecosystem at Sky and researching scalable graph and phylogenetic visualization." />
+    <meta property="og:url" content="https://goncalofrutuoso.dev/" />
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"Person","name":"Gonçalo Frutuoso","url":"https://goncalofrutuoso.dev/","jobTitle":"Software Engineer","sameAs":["https://github.com/Gongamax","https://www.linkedin.com/in/goncalo-frutuoso/"]}
+    </script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <main>
+      <header class="intro">
+        <div class="intro-heading">
+          <div>
+            <h1>Gonçalo Frutuoso</h1>
+            <p class="role">Software Engineer · Lisbon, Portugal</p>
+            <div class="intro-copy">
+              <p>I build software with a bias toward systems that need to be fast, dependable, and understandable.</p>
+              <p>I work at <strong>Sky</strong> on the Apple TV ecosystem. I am also finishing an M.Sc. in Computer Engineering at <strong>Instituto Superior Técnico</strong> and doing research with <strong>INESC-ID</strong> on scalable exploration and visualization of large phylogenetic trees and networks.</p>
+            </div>
+          </div>
+          <img class="profile-photo" src="/images/profile.jpg" width="88" height="88" alt="Portrait of Gonçalo Frutuoso" />
+        </div>
+        <nav class="links" aria-label="External links">
+          <a href="https://github.com/Gongamax">github</a>
+          <a href="https://www.linkedin.com/in/goncalo-frutuoso/">linkedin</a>
+          <a href="/cv/Goncalo_Frutuoso_CV.pdf">cv</a>
+          <a href="mailto:goncasantacruz@gmail.com">email</a>
+        </nav>
+      </header>
+
+      <section aria-labelledby="work-heading">
+        <h2 id="work-heading">Selected work</h2>
+        <div class="entries">
+          <article class="entry">
+            <div class="entry-heading"><h3>PhyloLens</h3><span>2025—2026</span></div>
+            <p>Interactive exploration of large phylogenetic trees and graphs. The system combines hierarchical level of detail, semantic zoom, viewport-based data selection, server-side graph processing, and scalable layouts to keep datasets with hundreds of thousands of profiles practical to explore.</p>
+            <p class="tech">TypeScript · FastAPI · Sigma.js · Graphology · Python</p>
+          </article>
+          <article class="entry">
+            <div class="entry-heading"><h3><a href="https://github.com/Gongamax/Games-Cloud">Games@Cloud</a></h3><span>distributed systems</span></div>
+            <p>A distributed computation platform with adaptive workload scheduling, automatic EC2 scaling, workload prediction, and bytecode instrumentation for transparent runtime metrics.</p>
+            <p class="tech">Java · AWS EC2 · DynamoDB · Javassist</p>
+          </article>
+          <article class="entry">
+            <div class="entry-heading"><h3><a href="https://github.com/Gongamax/DepChain">DepChain</a></h3><span>dependable systems</span></div>
+            <p>A permissioned blockchain architecture built around a custom fault-tolerant consensus protocol, with support for dependable replication and dynamic system reconfiguration.</p>
+            <p class="tech">Java · consensus · fault tolerance</p>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="paper-heading">
+        <h2 id="paper-heading">Paper</h2>
+        <article class="paper">
+          <h3>A blockchain-based approach for academic registry management</h3>
+          <p class="authors">Gonçalo Frutuoso, Diogo Rodrigues, Alexandre P. Francisco, Cátia Vaz</p>
+          <p>An identity-bound academic credential registry using OnchainID and ERC-3643, with on-chain issuer accreditation, updatable and revocable credentials, and wallet-free third-party verification.</p>
+          <p><a href="/papers/scar.pdf">paper.pdf</a></p>
+        </article>
+      </section>
+
+      <section aria-labelledby="experience-heading">
+        <h2 id="experience-heading">Experience</h2>
+        <div class="timeline">
+          <div class="timeline-row"><time>2026—</time><div><strong>Sky</strong><span>Software Engineer</span></div></div>
+          <div class="timeline-row"><time>2025—2026</time><div><strong>INESC-ID</strong><span>Research Assistant</span></div></div>
+          <div class="timeline-row"><time>2025</time><div><strong>Sky</strong><span>Software Engineering Intern</span></div></div>
+          <div class="timeline-row"><time>2023</time><div><strong>Universidade Lusófona</strong><span>Programmer</span></div></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="education-heading">
+        <h2 id="education-heading">Education</h2>
+        <div class="timeline">
+          <div class="timeline-row"><time>2024—2026</time><div><strong>Instituto Superior Técnico</strong><span>M.Sc. Computer Engineering</span><small>On large-scale trees and networks exploratory analysis and visualization</small></div></div>
+          <div class="timeline-row"><time>2021—2024</time><div><strong>ISEL</strong><span>B.Sc. Computer Engineering</span></div></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="about-heading">
+        <h2 id="about-heading">About</h2>
+        <div class="prose">
+          <p>I am particularly interested in distributed systems, backend engineering, algorithms, performance, developer tooling, and graph-heavy problems. I prefer simple systems, explicit trade-offs, and code that can be understood without archaeology.</p>
+          <p>Outside computers, I box, skimboard, run, and spend too much time around motorcycles and old cars.</p>
+        </div>
+      </section>
+
+      <footer>
+        <nav class="links" aria-label="Footer links">
+          <a href="https://github.com/Gongamax">github</a>
+          <a href="https://www.linkedin.com/in/goncalo-frutuoso/">linkedin</a>
+          <a href="/cv/Goncalo_Frutuoso_CV.pdf">cv</a>
+          <a href="mailto:goncasantacruz@gmail.com">email</a>
+        </nav>
+        <p>© 2026 Gonçalo Frutuoso</p>
+      </footer>
+    </main>
   </body>
 </html>

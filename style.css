@@ -1,0 +1,40 @@
+:root { --background: #fbfbfa; --text: #1b1b1a; --muted: #6f6f6b; --line: #ddddda; --link: #1856a7; --selection: #dce8f7; }
+* { box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body { margin: 0; background: var(--background); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 1rem; line-height: 1.65; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+::selection { background: var(--selection); }
+main { width: min(760px, calc(100% - 40px)); margin: 0 auto; padding: 88px 0 56px; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { margin-bottom: 0.35rem; font-size: clamp(2.3rem, 7vw, 3.9rem); font-weight: 700; line-height: 1.03; letter-spacing: -0.045em; }
+h2 { margin-bottom: 1.7rem; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.01em; }
+h3 { margin-bottom: 0.45rem; font-size: 1.03rem; font-weight: 650; line-height: 1.4; }
+p { margin-bottom: 0.9rem; }
+strong { font-weight: 650; }
+a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
+.intro { margin-bottom: 5.6rem; }
+.intro-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; }
+.profile-photo { flex: 0 0 88px; width: 88px; height: 88px; margin-top: 0.2rem; border: 1px solid var(--line); border-radius: 2px; object-fit: cover; object-position: 51% 18%; }
+.role { margin-bottom: 2.1rem; color: var(--muted); }
+.intro-copy { max-width: 600px; font-size: 1.09rem; }
+.links { display: flex; flex-wrap: wrap; gap: 0.55rem 1.15rem; margin-top: 1.8rem; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.86rem; }
+section { padding-top: 1.15rem; margin-top: 4.8rem; border-top: 1px solid var(--line); }
+.entries { display: grid; gap: 2.6rem; }
+.entry-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; }
+.entry-heading h3 { margin-bottom: 0.35rem; }
+.entry-heading > span, .tech, .authors { color: var(--muted); font-size: 0.88rem; }
+.entry-heading > span { flex: 0 0 auto; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.78rem; }
+.entry p, .paper p, .prose p { max-width: 690px; }
+.paper h3 { max-width: 640px; font-size: 1.12rem; }
+.timeline { display: grid; gap: 1.15rem; }
+.timeline-row { display: grid; grid-template-columns: 7.2rem 1fr; gap: 1rem; align-items: start; }
+.timeline-row time { padding-top: 0.08rem; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.8rem; }
+.timeline-row div { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 1.5rem; }
+.timeline-row span { color: var(--muted); text-align: right; }
+.timeline-row small { grid-column: 1 / -1; margin-top: 0.15rem; color: var(--muted); font-size: 0.86rem; }
+footer { padding-top: 1.25rem; margin-top: 5.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.82rem; }
+footer .links { margin-top: 0; margin-bottom: 1rem; }
+footer p { margin-bottom: 0; }
+@media (max-width: 600px) { main { width: min(100% - 32px, 760px); padding-top: 54px; } .intro { margin-bottom: 4.4rem; } .intro-heading { flex-direction: column; gap: 1.25rem; } .profile-photo { width: 72px; height: 72px; flex-basis: 72px; margin-top: 0; } section { margin-top: 3.8rem; } .entry-heading { display: block; } .entry-heading > span { display: block; margin-bottom: 0.6rem; } .timeline-row { grid-template-columns: 1fr; gap: 0.15rem; } .timeline-row div { grid-template-columns: 1fr; gap: 0.05rem; } .timeline-row span { text-align: left; } }
+@media (prefers-color-scheme: dark) { :root { --background: #121211; --text: #ededeb; --muted: #a2a29d; --line: #333330; --link: #8ab4eb; --selection: #29486d; } }
